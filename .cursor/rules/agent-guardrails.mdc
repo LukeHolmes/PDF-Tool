@@ -1,0 +1,17 @@
+---
+description: SplitStitch privacy-first safeguards and scoped regression verification
+alwaysApply: true
+globs: ""
+---
+
+# SplitStitch / PDF-Tool — Cursor guardrails
+
+Read README.md and inspect current source, package scripts and architecture before choosing a development command; the README may lag recent work.
+
+- PDF/image processing must remain local in the browser unless an explicitly approved new feature defines a different trust boundary. Never send imported files, previews, thumbnails, OCR text, file names or extracted contents to outside APIs, analytics, remote models or test services.
+- Use synthetic fixtures; never commit personal documents or copy them into logs, issue comments, screenshots or AI requests.
+- Preserve page order, selection behaviour, rotations, insert/extract, undo/redo and final downloads except where the task expressly changes them.
+- For UI changes check desktop/mobile, keyboard access, drag/drop, image and PDF output fidelity, failure recovery and large-file memory behaviour.
+- Audit PDF/image dependencies for CSP, object URL cleanup, worker isolation, XSS and privacy risks before adding or upgrading them. No unrequested telemetry or cloud services.
+- First verify which test commands and CI checks exist; never claim tests were run when they were not. Prefer deterministic fixture scripts to agent-operated UI repetition.
+- Use a feature branch, report changed files and evidence, and obtain approval before merges or publishing.
